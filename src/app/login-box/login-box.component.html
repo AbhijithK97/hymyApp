@@ -1,0 +1,58 @@
+
+<div id="login-body">
+  <h1> Log in</h1>
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.valid)">
+    <div id="form-group">
+        <label for="username" >
+              Username
+        </label>
+
+        <input
+              required
+              name="username" ngModel
+              #username="ngModel"
+              (change)="log(username)"
+              id ="username"
+              class="form-control-top"
+              type="text"
+              minlength=5>
+              <br>
+      <div class= "alert-danger" *ngIf=" username.touched&&!username.valid"> Username is required</div>
+      <div class= "alert-danger" *ngIf=" username.touched&&!username.valid"> Username should be minmum 8 characters</div>
+
+    </div>
+
+    <div id="form-group">
+          <label for="password" >
+              Password
+          </label>
+          <input
+              name="password" ngModel
+              #password ="ngModel"
+
+              class="form-control-bottom"
+              required="required"
+              type="password"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+              <div>
+                <br>
+                <div class= "alert-danger" *ngIf=" password.touched&&!password.valid"> Password is required</div>
+                <div class= "alert-danger" *ngIf=" password.touched&&!password.valid">
+                  Password should contain atleast 8 characters<br>
+                  Password should contain atleast 1 uppercase and lowercase<br>
+                  Password should contain atleast 1 Special characters<br>
+              </div>
+              </div>
+    </div>
+
+      <div id="submit-container">
+        <button
+        ng-disabled = "username.valid"
+         ng-click="submit()">Submit</button>
+
+
+      </div>
+  </form>
+
+</div>
