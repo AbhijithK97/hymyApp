@@ -20,7 +20,7 @@ onSubmit(value1:any,value2:any){
   let userpass =value2
 
   window.alert("You are sucessfully logged in!!")
-  this.router.navigate(['/login/home'])
+  this.router.navigate(['/home'])
 
 
 
