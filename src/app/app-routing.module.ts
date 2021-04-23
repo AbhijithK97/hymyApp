@@ -2,9 +2,12 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import{LoginBoxComponent} from "./login-box/login-box.component";
 
-const routes: Routes = [];
+
+const routes: Routes = [
+  { path: 'login',
+   loadChildren: () => import('./login/login.module').then(m => m.LoginModule) }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

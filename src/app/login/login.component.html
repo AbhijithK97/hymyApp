@@ -1,7 +1,7 @@
 
 <div id="login-body">
   <h1> Log in</h1>
-  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.valid)">
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.valid,loginForm.value)">
     <div id="form-group">
         <label for="username" >
               Username
